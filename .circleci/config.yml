@@ -35,20 +35,20 @@ workflows:
     jobs:
       - test_int
       - test_staging
-  meh15:
+  meh35:
     triggers:
       - schedule:
-          cron: "15 * * * *"
+          cron: "35 * * * *"
           filters:
             branches:
               only:
                 - master
     jobs:
       - test_int
-  meh20:
+  meh40:
     triggers:
       - schedule:
-          cron: "20 * * * *"
+          cron: "40 * * * *"
           filters:
             branches:
               only:
