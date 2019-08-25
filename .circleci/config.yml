@@ -3,6 +3,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
     steps:
+      - checkout
       - run: make setup
   test_int:
     docker:
