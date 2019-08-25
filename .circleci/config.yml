@@ -10,13 +10,15 @@ jobs:
       - image: circleci/ruby:2.5.3-node-browsers
     steps:
       - checkout
+      - run: make setup
       - run: make setup test LOWER_ENV=int
   test_staging:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
     steps:
       - checkout
-      - run: make setup test LOWER_ENV=staging
+      - run: make setup
+      - run: make test LOWER_ENV=staging
 workflows:
   version: 2
   commit:
@@ -26,6 +28,10 @@ workflows:
     triggers:
       - schedule:
           cron: "0 16 * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - test_int
       - test_staging
@@ -33,11 +39,19 @@ workflows:
     triggers:
       - schedule:
           cron: "15 * * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - test_int
   meh20:
     triggers:
       - schedule:
           cron: "20 * * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - test_int
