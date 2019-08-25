@@ -26,10 +26,18 @@ workflows:
     triggers:
       - schedule:
           cron: "0 16 * * *"
-          filters:
-            branches:
-              only:
-                - master
     jobs:
       - test_int
       - test_staging
+  meh15:
+    triggers:
+      - schedule:
+          cron: "15 * * * *"
+    jobs:
+      - test_int
+  meh20:
+    triggers:
+      - schedule:
+          cron: "20 * * * *"
+    jobs:
+      - test_int
