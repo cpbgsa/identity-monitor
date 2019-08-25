@@ -2,7 +2,8 @@
 *.rbc
 .bundle
 .config
-#.env
+.idea
+.env
 
 coverage
 InstalledFiles

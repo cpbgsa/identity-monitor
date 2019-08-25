@@ -1,4 +1,4 @@
-jobs:
+jbs:
   build:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
@@ -11,6 +11,7 @@ jobs:
     steps:
       - checkout
       - run: make setup
+      - run: cp .env.example .env
       - run: make setup test LOWER_ENV=int
   test_staging:
     docker:
@@ -35,20 +36,20 @@ workflows:
     jobs:
       - test_int
       - test_staging
-  meh35:
+  meh42:
     triggers:
       - schedule:
-          cron: "35 * * * *"
+          cron: "42 * * * *"
           filters:
             branches:
               only:
                 - master
     jobs:
       - test_int
-  meh40:
+  meh45:
     triggers:
       - schedule:
-          cron: "40 * * * *"
+          cron: "45 * * * *"
           filters:
             branches:
               only:
