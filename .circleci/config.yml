@@ -9,11 +9,13 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
     steps:
+      - checkout
       - run: make setup test LOWER_ENV=int
   test_staging:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
     steps:
+      - checkout
       - run: make setup test LOWER_ENV=staging
 workflows:
   version: 2
@@ -23,7 +25,7 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: "15 10 * * *"
+          cron: "30 11 * * *"
           filters:
             branches:
               only:
