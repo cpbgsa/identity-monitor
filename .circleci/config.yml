@@ -1,4 +1,4 @@
-jbs:
+jobs:
   build:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
@@ -36,20 +36,20 @@ workflows:
     jobs:
       - test_int
       - test_staging
-  meh42:
+  meh53:
     triggers:
       - schedule:
-          cron: "42 * * * *"
+          cron: "53 * * * *"
           filters:
             branches:
               only:
                 - master
     jobs:
       - test_int
-  meh45:
+  meh57:
     triggers:
       - schedule:
-          cron: "45 * * * *"
+          cron: "57 * * * *"
           filters:
             branches:
               only:
