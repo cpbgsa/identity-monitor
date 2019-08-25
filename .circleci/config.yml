@@ -22,10 +22,10 @@ workflows:
   commit:
     jobs:
       - build
-  nightly:
+  daily:
     triggers:
       - schedule:
-          cron: "45 11 * * *"
+          cron: "0 16 * * *"
           filters:
             branches:
               only:
